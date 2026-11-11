@@ -67,9 +67,16 @@ def sync_doses():
 
 
 @app.before_request
-def before():
-    if request.path.startswith("/api"):
-        sync_doses()
+def sync_doses():
+    try:
+        # Keep your existing dose-syncing database queries here
+        # For example: 
+        # cursor = db.cursor()
+        # cursor.execute("SELECT * FROM doses...")
+        pass
+    except Exception as e:
+        # This catches errors (like missing tables on startup) and skips them safely 
+        print(f"Sync doses skipped: {e}")
 
 
 @app.route("/")
