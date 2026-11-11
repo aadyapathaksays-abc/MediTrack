@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MediTrack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<aside id="side">
+  <div class="brand"><span class="logo"></span>MediTrack</div>
+  <label class="sr" for="profile">Profile</label>
+  <select id="profile"></select>
+  <nav id="nav"></nav>
+  <button class="btn primary" id="addBtn">+ Add medicine</button>
+</aside>
+<main id="main"></main>
+
+<dialog id="dlg">
+  <form id="form">
+    <h2 id="dlgTitle">Add medicine</h2>
+    <label>Medicine name<input id="f_name" required></label>
+    <label>Dosage<input id="f_dosage" placeholder="1 tablet, 5 ml" required></label>
+    <label>Frequency
+      <select id="f_freq"><option value="1">Once daily</option><option value="2">Twice daily</option><option value="3">Thrice daily</option></select>
+    </label>
+    <div id="f_times" class="row"></div>
+    <div class="row">
+      <label>Start date<input type="date" id="f_start" required></label>
+      <label>End date<input type="date" id="f_end" required></label>
+    </div>
+    <label>Instructions
+      <select id="f_inst"><option value="">None</option><option>Before food</option><option>After food</option><option>With food</option><option value="custom">Custom</option></select>
+    </label>
+    <input id="f_custom" placeholder="Write your instructions" hidden>
+    <p id="f_err" class="err" role="alert"></p>
+    <div class="row end"><button type="button" class="btn" id="cancel">Cancel</button><button class="btn primary">Save medicine</button></div>
+  </form>
+</dialog>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="/static/app.js"></script>
+</body>
+</html>
