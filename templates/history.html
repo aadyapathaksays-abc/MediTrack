@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Dose history · MediTrack{% endblock %}
+{% block content %}
+<p class="eyebrow">YOUR ACTIVITY</p><h1>Dose history</h1>
+<section class="panel">
+{% if logs %}
+<table><thead><tr><th>Medicine</th><th>Date</th><th>Logged at</th><th>Status</th></tr></thead><tbody>
+{% for log in logs %}<tr><td><strong>{{ log.name }}</strong><br><small>{{ log.dosage }}</small></td><td>{{ log.dose_date }}</td><td>{{ log.dose_time }}</td><td><span class="status {{ 'taken' if log.status == 'Taken' else 'skipped' }}">{{ log.status }}</span></td></tr>{% endfor %}
+</tbody></table>
+{% else %}<div class="empty"><h3>No dose activity yet</h3><p>Your taken and skipped entries will appear here.</p></div>{% endif %}
+</section>
+{% endblock %}
