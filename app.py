@@ -59,15 +59,9 @@ def add_medicine():
     flash("Medicine added successfully!", "success")
     return redirect(url_for("index"))
 
-@app.route("/log/<int:med_id>/<status>", methods=["POST"])
-def log_dose(status, med_id):
-    today_str = str(date.today())
-    with connect() as db:
-        db.execute(
-            "INSERT INTO dose_logs (medicine_id, status, date) VALUES (?, ?, ?)",
-            (med_id, status, today_str)
-        )
-        db.commit()
+@app.route("/log/<int:medicine_id>/<status>")
+def log_dose(medicine_id, status):
+    # your database logic here
     return redirect(url_for("index"))
 
 if __name__ == "__main__":
